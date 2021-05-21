@@ -44,6 +44,65 @@ void quicksort(int A[], int low, int high, int *count)
 
 }
 
+
+//// Q 3
+//void quicksort(int A[], int low, int high, int *count)
+//{
+//    if(high > low)
+//    {
+//
+//        *count = *count + high-low;
+//
+//        int change, middle = (low + high)/2;
+//        if(A[low] < A[high])
+//        {
+//            if(A[middle] < A[high])
+//            {
+//                if(A[low] < A[middle])
+//                {
+//                    change = middle;
+//                }
+//                else
+//                {
+//                    change = low;
+//                }
+//            }
+//            else
+//            {
+//                change = high;
+//            }
+//        }
+//        else
+//        {
+//            if(A[middle] < A[low])
+//            {
+//                if(A[high] < A[middle])
+//                {
+//                    change = middle;
+//                }
+//                else
+//                {
+//                    change = high;
+//                }
+//            }
+//            else
+//            {
+//                change = low;
+//            }
+//        }
+//        int p = low;
+//
+//        int temp = A[p];
+//        A[p] = A[change];
+//        A[change] = temp;
+//
+//        int pi = Partition(A, low, high, p);
+//        quicksort(A, low, pi-1, count);
+//        quicksort(A, pi+1, high, count);
+//    }
+//
+//}
+
 void solve()
 {
     int n = 10000;
