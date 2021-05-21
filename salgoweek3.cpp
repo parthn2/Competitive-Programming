@@ -21,7 +21,7 @@ int Partition(int A[], int low, int high, int pi)
             i++;
         }
     }
-    int temp = A[pi];
+    int temp = A[pi]; 
     A[pi] = A[i-1];
     A[i-1] = temp;
     return i-1;
