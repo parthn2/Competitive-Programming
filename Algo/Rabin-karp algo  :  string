@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// function for returning prod use in hashing .
+int mypow(int d,int i,int q)
+{
+    int prod = 1;
+    for (int j = 1; j <= i;j++)
+    {
+        prod = (prod*d)%q;
+    }
+    return prod;
+}
+int search(string txt,string pat)
+{
+    int d = 127;
+    int q = 101;
+    int n = txt.length();
+    int m = pat.length();
+    int p=0,t=0;
+    for(int i=0;i<m;i++)
+    {
+        int temp=(pat[i]*mypow(d, m-1-i,q))%q;
+        p = (p + temp ) % q;
+    }
+   
+    for (int i = 0; i <=n-m;i++)
+    {
+        t = 0;
+        for (int j = i; j < i+m;j++)
+        {
+            int temp=(txt[j]*mypow(d , (m +i)- 1 - j,q))%q;
+            t = (temp  + t )%q;
+        }
+    
+        if(t==p)
+        {
+            int count = 0;
+            for (int k = i; k < i + m;k++)
+            {
+                if(txt[k]==pat[k-i])
+                {
+                    count++;
+                }
+
+            }
+            if(count==m)
+            {
+                cout << "founded at index :" << i << "\n";
+            }
+        }
+    }
+    return 0;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    string text="HUD HUD DABANG DABANG DABANG HOO";
+    string pattern = "DABANG";
+    search(text, pattern);
+    
+    return 0;
+    
+   
+}
